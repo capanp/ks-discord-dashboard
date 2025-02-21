@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <link href="./styles.css" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined-Bottom:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <title>Ana Menü</title>
+</head>
+
+<body>
+  <div id ="loader-container" class="loader-container">
+    <div class="loader"></div>
+    <textarea readonly type="text" id="console-output" name="console" rows="15" cols="60"></textarea>
+    <button id="loaderExit" class="loaderExit" type="button">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+    <button id="loaderMini" class="loaderMini" type="button">
+      <span class="material-symbols-outlined">arrow_drop_down</span>
+    </button>
+    <div class="loaderTitle">
+      <p class="loaderTitleText">./index.html - Bağlanma Ekranı</p>
+    </div>
+  </div>
+
+<div id="content" style="display:none;">
+  <div class="navBar">
+    <div class="navHeader">
+      Discord Bot
+      <br>
+      Paneli
+    </div>
+    <div class="tokenBackground" id="tokenBackground">
+      <div class="tokenContentDiv">
+        <p class="tokenHeader">Token Hatalı</p>
+        <div class="tokenContentDivContent">
+          <p class="tokenText">Bot konumundaki <a class="linkText" target="_blank" id="path"
+              onclick="goPath()">'../bot/config.json'</a>
+            dosyasındaki <a class="linkText" href="https://www.technopat.net/sosyal/konu/discord-token-nedir.1872949/"
+              target="_blank">'Token'</a> veya <a class="linkText"
+              href="https://www.technopat.net/sosyal/konu/discord-bot-olustururken-client-id-asamasi-gecilmiyor.2526642/"
+              target="_blank">'ClientID'</a> değerlerin hatalı veya girilmemiş.</p>
+          <input class="tokenInput" id="tokenInput" type="text" name="metin-kutusu"
+            placeholder="Token Değerinizi Girin.">
+          <input class="inputButton" id="inputButton" type="submit" value="Değiştir" onclick="changeToken()">
+        </div>
+        <p class="tokenInfoText">🛈 'ClientID' değerini 'Token' değeriyle bulur.</p>
+      </div>
+    </div>
+    <div class="navTopButton">
+      <a class="clicked" href="">
+        <span id="selectedIcon" class="material-symbols-outlined">
+          dashboard
+        </span>
+        <p>Ana Sayfa</p>
+      </a>
+    </div>
+    <div class="navButton">
+      <a class="clicked" href="ikinci_sayfa.html">
+        <span class="material-symbols-outlined">
+          Database
+        </span>
+        <p>Veri Tabanı</p>
+      </a>
+    </div>
+    <div class="navButton">
+      <a class="clicked" href="ikinci_sayfa.html">
+        <span class="material-symbols-outlined">
+          Terminal
+        </span>
+        <p>Terminal</p>
+      </a>
+    </div>
+    <div class="bottomDiv">
+      <div class="bottomDivs">
+        <a href="ikinci_sayfa.html">
+          <span class="material-symbols-outlined">
+            manufacturing
+          </span>
+        </a>
+      </div>
+      <div class="bottomDivs">
+        <a href="ikinci_sayfa.html">
+          <span class="material-symbols-outlined">
+            contact_support
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="mainContent">
+    <div class="topTitle">
+      <p class="titleText">./index.html - Ana Menü</p>
+      <div class="mini">
+        <button id="miniBtn" type="button" class="miniButton">
+          <span class="material-symbols-outlined">arrow_drop_down</span>
+        </button>
+      </div>
+      <div class="exit">
+        <button id="closeBtn" type="button" class="exitButton">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+    </div>
+    <div class="content">
+      <div class="top">
+        <div class="kullanim">
+          <div class="kullanimMargin">
+            Kullanım Düzeyleri
+            <div class="progress-container">
+              Ortalama İşlemci Kullanımı
+              <div class="progress-dark">
+                <div class="progress-bar" id="myProgressBar"></div>
+              </div>
+            </div>
+            <p class="islemci" id="islemci">NaN</p>
+            <div class="progress-container-ram">
+              Ram Kullanımı
+              <div class="progress-dark">
+                <div class="progress-bar" id="myProgressBar2"></div>
+              </div>
+            </div>
+            <p class="ram" id="ram">NaN</p>
+            <p class="ram" id="os">NaN</p>
+          </div>
+        </div>
+        <div class="profil">
+          <div class="kullanimMargin">
+            <div class="profilText">Bot Profili</div>
+            <div class="resimDiv">
+              <img class="profilResmi" src="https://archive.org/download/discordprofilepictures/discordblue.png" alt="Profile">
+            </div>
+            <div class="profilColor"></div>
+            <div class="profil-container">
+              <div class="nameDiv">
+                <p class="botName" id="botName">NaN</p>
+                <p class="botdigitName" id="botTagName">undefined</p>
+                <p class="pToptext" id="botID">undefined</p>
+                <p class="ptext" id="servers">Sunucu.</p>
+                <p class="ptext" id="users">Kullanıcı.</p>
+                <p class="ptext" id="commands">? Adet Komut!</p>
+                <div class="profilLine"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="start">
+          <div class="lds-ripple"><div></div><div></div></div>
+          <button class="circle-button" onclick="start()">Başlat</button>
+          <div class="timer">00:00:00</div> <!-- Sayaç eklendi -->
+        </div> 
+        <div class="miniTerminal">
+          <textarea readonly type="text" id="console-out" name="console" rows="3" cols="5"></textarea>
+        </div>       
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- You can also require other files to run in this process -->
+  <script src="./renderer.js"></script>
+</body>
+
+</html>

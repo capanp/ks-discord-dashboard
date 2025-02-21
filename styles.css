@@ -1,0 +1,796 @@
+/* styles.css */
+.start {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    background-color: #1d1c28;
+    height: 250px;
+    width: 340px;
+    margin: 15px;
+    margin-left: 25px !important;
+    margin-right: 8px !important;
+    border-radius: 10px;
+    user-select: none;
+}
+
+.timer {
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+  }
+  
+  .lds-ripple {
+    display: inline-block;
+    position: relative;
+    width: 175px;
+    height: 175px;
+    color: #088572; /* Başlangıç rengi mavi */
+
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+  }
+  
+  .lds-ripple div {
+    position: absolute;
+    border: 8px solid currentColor;
+    opacity: 1;
+    border-radius: 50%;
+    animation: lds-ripple 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  
+  .lds-ripple div:nth-child(2) {
+    animation-delay: -1s;
+  }
+  
+  @keyframes lds-ripple {
+    0% {
+      top: 72px;
+      left: 72px;
+      width: 16px;
+      height: 16px;
+      opacity: 0;
+    }
+    4.9% {
+      top: 72px;
+      left: 72px;
+      width: 16px;
+      height: 16px;
+      opacity: 0;
+    }
+    5% {
+      top: 72px;
+      left: 72px;
+      width: 16px;
+      height: 16px;
+      opacity: 1;
+    }
+    100% {
+      top: 0;
+      left: 0;
+      width: 160px;
+      height: 160px;
+      opacity: 0;
+    }
+  }
+  
+  .circle-button {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #088572; /* Buton rengi */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute; /* Butonu animasyonun ortasına yerleştirmek için */
+    top: 50%; /* Divin tam ortasına */
+    left: 50%; /* Divin tam ortasına */
+    transform: translate(-50%, -50%); /* Tam merkez */
+    z-index: 1; /* Animasyonun üstünde olmasını sağlar */
+
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+  }
+  
+  .circle-button:hover {
+    background-color: #06675b; /* Hover rengi */
+  }
+
+  .miniTerminal {
+    display: flex;
+    justify-content: center; /* Yatayda ortalamak için */
+    align-items: center; /* Dikeyde ortalamak için */
+    position: relative;
+    background-color: #1d1c28;
+    height: 250px;
+    width: 340px;
+    margin: 15px;
+    margin-left: 20px !important;
+    border-radius: 10px;
+    padding: 15px; /* İçerik ile kenarlar arasında 25px boşluk bırakmak için */
+    box-sizing: border-box; /* Padding ve border dahil edilerek hesaplanmasını sağlamak için */
+}
+
+#console-out {
+    width: 100%; /* Textarea genişliğini div'in genişliğine göre ayarlamak için */
+    height: 100%; /* Textarea yüksekliğini div'in yüksekliğine göre ayarlamak için */
+    box-sizing: border-box; /* Padding ve border dahil edilerek hesaplanmasını sağlamak için */
+    background-color: #23232a;
+    color: white;
+    border-radius: 10px; /* Köşeleri yumuşat */
+    border: none;
+    resize: none;
+}
+
+
+
+
+
+@font-face {
+    font-family: 'My Custom Font';
+    src: url('./fonts/kaspersky.ttf') format('truetype');
+}
+
+body {
+    font-family: 'kaspersky', sans-serif; /* Fallback to sans-serif */
+}
+
+.loader-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .loader {
+    border: 6px solid #23232a;
+    border-radius: 50%;
+    border-top: 6px solid #088572;
+    width: 45px;
+    height: 45px;
+    animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  #loader-container textarea {
+    margin-top: 50px;
+    background-color: #23232a;
+    color: white;
+    border-radius: 12px; /* Köşeleri yumuşat */
+    padding: 10px;
+    border: none;
+  }
+
+#loader-container textarea::-webkit-scrollbar {
+    width: 4px;
+}
+#loader-container textarea::-webkit-scrollbar-track {
+    background: #000000; 
+}
+#loader-container textarea::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+#loader-container textarea::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+  .loaderExit {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 4px 6px;
+    background-color: #0d0d15;
+    justify-content: center;
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+.loaderExit:hover {
+    background-color: #3c4453;
+}
+
+.loaderMini {
+    position: absolute;
+    top: 0px;
+    right: 33px;
+    padding: 4px 6px;
+    background-color: #0d0d15;
+    justify-content: center;
+    color: white;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+.loaderMini:hover {
+    background-color: #3c4453;
+}
+
+.loaderTitle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 33px;
+    width: 930px;
+    cursor: pointer;
+    -webkit-app-region: drag;
+    font-size: 12px;
+    color: #9b9fa7;
+    user-select: none;
+  }
+
+  .loaderTitleText {
+padding-left: 70px;
+  }
+
+
+
+
+
+
+
+body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    background-color: #0d0d15;
+    color: #f5f8fb;
+    font-family: sans-serif;
+}
+
+.navBar {
+    user-select: none;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    background-color: #272f39;
+    width: 240px;
+    height: 100vh;
+    gap: 5px;
+}
+
+.tokenBackground {
+    display: none;
+    /* Başlangıçta görünmez olarak ayarla */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Yarı saydamlıkta siyah bir arka plan */
+    z-index: 9999;
+    /* Diğer elementlerin üstünde olması için yüksek bir z-index değeri */
+}
+
+.tokenContentDiv {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 165px;
+    background-color: #0d0d15; /* veya istediğiniz bir renk */
+    z-index: 10000; /* Kapama alanının üstünde olması için daha yüksek bir z-index değeri */
+}
+
+.tokenContentDivContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    width: 430px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: #1d1c28; /* veya istediğiniz bir renk */
+    z-index: 10001; /* Kapama alanının üstünde olması için daha yüksek bir z-index değeri */
+    text-align: center;
+}
+
+.tokenHeader{
+    margin-top: 15px; margin-left: 25px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+.tokenText {
+    margin: 0 auto; margin-top: 10px !important;
+    display: inline-block; /* ya da inline-block */
+    line-height: 20px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.tokenInput{
+    margin: 0 auto; margin-top: 15px;
+    padding: 3px 5px;
+    background-color: #181720;
+    box-sizing: border-box;
+    border: 1px solid #383848;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    outline: none;
+    color: #f5f8fb;
+    border-radius: 5px;
+}
+
+.tokenInput:focus {
+    border: 1px solid #07645a;
+    color: #f5f8fb;
+}
+
+.inputButton{
+    margin-left: 5px; padding: 5px; padding-left: 10px; padding-right: 10px;
+    background-color: #088572;
+    color: #f5f8fb;
+    box-sizing: border-box;
+    border: 1px solid #383848;
+    border-radius: 5px;
+    font-size: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in; /* Renk geçişi özelliği */
+}
+
+.inputButton:hover{
+    transition: background-color 0.2s ease-in; /* Renk geçişi özelliği */
+    background-color: #06675b;
+}
+
+.inputButton:active{
+    transition: background-color 0.1s ease-in; /* Renk geçişi özelliği */
+    background-color: #014943;
+}
+
+.tokenInfoText {
+    position: absolute;
+    top: 145px;
+    left: 10px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #413f50
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 740px;
+    height: 100vh;
+}
+
+.top {
+    display: flex;
+    width: 740px;
+    height: 280px;
+}
+
+.titleText {
+    font-size: 12px;
+    color: #9b9fa7;
+    user-select: none;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+}
+
+.kullanim {
+    background-color: #1d1c28;
+    height: 250px;
+    width: 340px;
+    margin: 15px;
+    margin-left: 25px !important;
+    margin-right: 8px !important;
+    border-radius: 10px;
+    user-select: none;
+}
+
+.profil {
+    display: flex;
+    position: relative;
+    background-color: #1d1c28;
+    height: 250px;
+    width: 340px;
+    margin: 15px;
+    margin-left: 20px !important;
+    border-radius: 10px;
+}
+
+.bottom {
+    display: flex;
+    width: 740px;
+    height: 280px;
+}
+
+.clicked {
+    display: flex;
+    align-items: center;
+    color: #f5f8fb;
+    font-weight: 700;
+    font-size: 0.9em;
+    user-select: none;
+}
+
+p {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+}
+
+a:link {
+    text-decoration: none;
+    color: #f5f8fb;
+    font-weight: 600;
+    font-size: 0.9em;
+    user-select: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.navHeader {
+    margin: 25px;
+    font-weight: bold;
+    width: 180px;
+    height: 36px;
+    text-align: left;
+    border-radius: 8px;
+}
+
+.navTopButton {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    padding: 15px;
+    width: 180px;
+    text-decoration: none;
+    background-color: #1c1b27;
+    border-radius: 8px;
+}
+
+.navButton {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    width: 180px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.navButton:hover {
+    background-color: #3c4453;
+    user-select: none;
+}
+
+.bottomDiv {
+    border-top: 1px solid #43474d;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 200px;
+    height: 75px;
+}
+
+.material-symbols-outlined {
+    color: #acb4bf;
+}
+
+.material-symbols-outlined:hover {
+    text-align: center;
+    background-color: #3c4453;
+    user-select: none;
+}
+
+/* Add styles here to customize the appearance of your app */
+
+.material-symbols-outlined {
+    border-radius: 8px;
+}
+
+.bottomDivs {
+    padding: 8px;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.bottomDivs:hover {
+    background-color: #3c4453;
+    user-select: none;
+}
+
+.mainContent {
+    display: flex;
+    width: 100vh;
+    height: 100vh;
+}
+
+.topTitle {
+    display: flex;
+    height: 35px;
+    width: 700px;
+    -webkit-app-region: drag;
+}
+
+.mini {
+    position: absolute;
+    top: 0;
+    right: 34px;
+    width: 34px;
+    height: 34px;
+    align-items: center;
+    justify-content: center;
+}
+
+.exit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 34px;
+    height: 34px;
+    align-items: center;
+    justify-content: center;
+}
+
+.exitButton {
+    /* Flexbox kullanarak içeriği merkeze hizala */
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0d0d15;
+    border: none;
+    cursor: pointer;
+}
+
+.miniButton {
+    /* Flexbox kullanarak içeriği merkeze hizala */
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0d0d15;
+    border: none;
+    cursor: pointer;
+}
+
+.exitButton:hover {
+    background-color: #3c4453;
+}
+
+.miniButton:hover {
+    background-color: #3c4453;
+}
+
+#selectedIcon {
+    color: #088572 !important;
+}
+
+#selectedIcon:hover {
+    background-color: transparent !important;
+}
+
+/* Add styles here to customize the appearance of your app */
+
+.profil-container {
+    display: flex;
+    position: relative;
+    padding: 10px;
+    margin-top: 60px;
+    font-size: 14px;
+    font-weight: 500;
+    width: 285px;
+    /* İlerleme çubuğu uzunluğunu burada ayarlayabilirsiniz */
+    height: 125px;
+    background-color: #282733;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.progress-container {
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    width: 285px;
+    /* İlerleme çubuğu uzunluğunu burada ayarlayabilirsiniz */
+    height: 40px;
+    background-color: #282733;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-container-ram {
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    width: 285px;
+    /* İlerleme çubuğu uzunluğunu burada ayarlayabilirsiniz */
+    height: 40px;
+    background-color: #282733;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-dark {
+    background-color: #21343a;
+    width: 265px;
+    border-radius: 15px;
+}
+
+/* İlerleme çubuğu */
+.progress-bar {
+    margin-top: 5px;
+    width: 0;
+    /* Başlangıçta dolu olmasını istemiyorsanız 0 olarak ayarlayabilirsiniz */
+    height: 15px;
+    background-color: #07645a;
+    /* Dolu kısmın rengi */
+    text-align: center;
+    line-height: 15px;
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    transition: all 1s ease;
+}
+
+.islemci {
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #413f50
+}
+
+.ram {
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #413f50
+}
+
+.content {
+    width: 740px;
+    height: 100vh;
+}
+
+.kullanimMargin {
+    font-weight: bold;
+    margin: 20px;
+}
+
+.botName {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 3px;
+    user-select: none;
+}
+
+.resimDiv {
+    position: absolute;
+    z-index: 2;
+    width: 140px;
+}
+
+.nameDiv {
+    width: 200px;
+}
+
+.profilResmi {
+    display: flex;
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    left: 180px;
+    top: 6px;
+    border-radius: 50%;
+    border: 8px solid #1d1c28;
+}
+
+.profilColor {
+    display: flex;
+    position: absolute;
+    width: 340px;
+    height: 40px;
+    background-color: #21343a;
+    left: 0;
+    top: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.pToptext {
+    font-size: 12px;
+    margin-top: 20px;
+    line-height: 18px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.botdigitName {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.ptext {
+    margin-top: 2px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    user-select: none;
+}
+
+.profilText {
+    top: 58px;
+    left: 25px;
+    position: absolute;
+    z-index: 1;
+    /* Diğer elementlerin üzerinde olacak */
+    user-select: none;
+}
+
+.profilLine {
+    display: flex;
+    position: absolute;
+    border-radius: 1px;
+    width: 190px;
+    height: 3px;
+    top: 60px;
+    background-color: rgb(53, 51, 68);
+}
+
+.linkText{
+    transition: color 0.2s ease-in; /* Renk geçişi özelliği */
+    text-decoration: none;
+    color: #088572;
+    cursor: pointer;
+}
+
+.linkText:link {
+    transition: color 0.2s ease-in; /* Renk geçişi özelliği */
+    text-decoration: none;
+    color: #088572;
+}
+
+.linkText:hover {
+    color: #07645a;
+}

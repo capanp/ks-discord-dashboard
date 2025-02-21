@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <link href="./config-styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined-Bottom:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Bot Kurulumu</title>
+  </head>
+  <body>
+    <div class="topDiv">
+      <p class="topText">Bot Ayarları</p>
+      <p class="titleText">./config-index.html - Bot Kurulumu</p>
+      <div class="mini">
+        <button id="miniBtn" type="button" class="miniButton">
+          <span class="material-symbols-outlined">arrow_drop_down</span>
+        </button>
+      </div>
+      <div class="exit">
+        <button id="closeBtn" type="button" class="exitButton">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+    </div>
+    <div class="contentDiv">
+      <img class="gif" src="./config.gif" alt="bug-fix">
+      <div class="firstMessage">
+        Hey, bot ayar dosyandaki Token bölümü eksik veya hatalı.
+        <br>
+        <p class="ftext">Bunu düzeltmek için buradayım, aşağıdan <a class="linkText" href="https://www.technopat.net/sosyal/konu/discord-token-nedir.1872949/" target="_blank">Token</a> ve <a class="linkText" href="https://www.technopat.net/sosyal/konu/discord-bot-olustururken-client-id-asamasi-gecilmiyor.2526642/" target="_blank">Client Id</a> değerini değiştirebilirim veya <a class="linkText" target="_blank" id="path">buraya tıkladığında</a> ayar dosyana yönlendirebilirim.</p>
+      </div>
+    </div>
+    <div class="replyDiv">
+      <form>
+        <label for="metin-kutusu">Token: </label>
+        <input type="text" id="metin-kutusu" name="metin-kutusu">
+        <label for="metin-kutusu">Client Id: </label>
+        <input type="text" id="metin-kutusu" name="metin-kutusu">
+        <input type="submit" value="Gönder">
+      </form>
+    </div>
+    <!-- You can also require other files to run in this process -->
+    <script src="./configRenderer.js"></script>
+  </body>
+</html>

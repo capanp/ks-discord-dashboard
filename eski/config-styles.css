@@ -1,0 +1,163 @@
+/* styles.css */
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0; padding: 0;
+    background-color: #0d0d15;
+    color: #f5f8fb;
+    font-family: sans-serif;
+    font-size: 0.9em;
+}
+
+.topDiv{
+    height: 34px;
+    width: 900px;
+    font-weight: bold;
+    -webkit-app-region: drag;
+}
+
+.topText{
+    margin: 10px;
+}
+
+.titleText{
+    display: flex;
+    position: absolute;
+    top: 0; left: 0;
+    font-size: 12px;
+    color: #9b9fa7;
+    user-select: none;
+    align-items: center;
+    justify-content: center;
+    width: 980px;
+}
+
+.mini{
+    position: absolute;
+    top: 0;
+    right: 34px;
+    width: 34px;
+    height: 34px;
+    align-items: center;
+    justify-content: center;
+}
+
+.exit{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 34px;
+    height: 34px;
+    align-items: center;
+    justify-content: center;
+}
+
+.exitButton{
+    /* Flexbox kullanarak içeriği merkeze hizala */
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0d0d15;
+    border: none;
+    cursor: pointer;
+}
+
+.miniButton{
+    /* Flexbox kullanarak içeriği merkeze hizala */
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0d0d15;
+    border: none;
+    cursor: pointer;
+}
+
+.exitButton:hover {
+    background-color: #3c4453;
+}
+
+.miniButton:hover {
+    background-color: #3c4453;
+}
+
+.material-symbols-outlined {
+    color: #acb4bf;
+}
+
+.material-symbols-outlined:hover {
+    text-align: center;
+    background-color: #3c4453;
+    user-select: none;
+}
+/* Add styles here to customize the appearance of your app */
+
+.material-symbols-outlined {
+    border-radius: 8px;
+}
+
+.contentDiv{
+    margin: 20px;
+    height: 416px;
+    width: 940px;
+}
+
+.gif{
+    margin-left: 20px;
+    width: 290px;
+    height: 170px;
+    border-radius: 10px;
+    user-select: none;
+}
+
+.firstMessage{
+    margin-top: 20px; margin-left: 20px;
+    padding: 10px;
+    width: 430px;
+    height: 95px;
+    border-radius: 10px;
+    line-height: 20px;
+    background-color: #282733;
+    user-select: none;
+    opacity: 0; /* Başlangıçta görünmez yapma */
+    animation: fadeInFromLeft 1s ease-in-out forwards; /* Animasyonu tanımlama */
+}
+
+.linkText{
+    transition: color 0.2s ease-in; /* Renk geçişi özelliği */
+    text-decoration: none;
+    color: #088572;
+    cursor: pointer;
+}
+
+.linkText:link {
+    transition: color 0.2s ease-in; /* Renk geçişi özelliği */
+    text-decoration: none;
+    color: #088572;
+}
+
+.linkText:hover {
+    color: #07645a;
+}
+
+.replyDiv{
+    height: 100px;
+    width: 980px;
+    background-color: blue;
+}
+
+/* ANİMASYON */
+
+@keyframes fadeInFromLeft {
+    from {
+        opacity: 0; /* Başlangıçta görünmez */
+        transform: translateX(-20%); /* Sol tarafa kaydırılmış pozisyon */
+    }
+    to {
+        opacity: 1; /* Son hal görünür hale gelene kadar opaklık artırılır */
+        transform: translateX(0); /* Normal pozisyona getir */
+    }
+}
